@@ -28,7 +28,7 @@ public class customerRepo implements customerDao {
     @Override
     public List<Customer> getAllCustomers() {
 
-        List<Customer> customers = jdbcTemplate.query("select * from customers limit 10", new RowMapper<Customer>() {
+        List<Customer> customers = jdbcTemplate.query("select * from customers limit 500", new RowMapper<Customer>() {
             @Override
             public Customer mapRow(ResultSet resultSet, int i) throws SQLException {
                 Customer customer1 = new Customer(resultSet.getInt("customer_id"),resultSet.getString("customer_fname"),resultSet.getString("customer_lname"),resultSet.getString("phone_number"),resultSet.getInt("money_amount"), resultSet.getString("username"), resultSet.getString("password"), resultSet.getString("serial_code"));
